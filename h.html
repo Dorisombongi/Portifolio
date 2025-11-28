@@ -1,0 +1,530 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Doris Ombongi – Data Analyst Portfolio</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #ffffff;
+        color: #003366;
+    }
+
+    p {
+        color: #000000;
+    }
+
+    /* Header */
+    header {
+        background: #003366;
+        color: white;
+        padding: 20px 35px;
+        text-align: center;
+    }
+
+    header h1 {
+        margin: 0;
+        font-size: 48px; /* Increased title size */
+    }
+
+    header p {
+        margin: 5px 0 0 0;
+        font-size: 14px;
+    }
+
+    .container {
+        width: 92%;
+        margin: auto;
+        padding: 30px 0;
+    }
+
+    h2 {
+        border-left: 5px solid #003366;
+        padding-left: 10px;
+        margin-bottom: 20px;
+    }
+
+    /* Professional Summary Section */
+    .summary-section {
+        display: flex;
+        gap: 20px;
+        background: #e8efff;
+        padding: 25px;
+        border-radius: 8px;
+        margin-bottom: 40px;
+        align-items: stretch;
+    }
+
+    .summary-card {
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+        flex: 3;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .image-card {
+        flex: 1;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+        display: flex;
+    }
+
+    .image-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    /* Skills Tags */
+    .skill-tags, .tags {
+        margin-top: 15px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .skill-tag, .tag {
+        background: #e6edff;
+        color: #003366;
+        padding: 6px 12px;
+        border-radius: 20px;
+        font-size: 13px;
+        border: 1px solid #c6d7ff;
+        cursor: pointer;
+    }
+
+    /* Button Styles */
+    .btn-blue {
+        display: inline-block;
+        background-color: #007bff;
+        color: white !important;
+        padding: 8px 14px;
+        text-decoration: none;
+        border-radius: 5px;
+        font-size: 14px;
+        margin-top: 5px;
+    }
+
+    /* Projects Container */
+    .projects-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /* 3 columns */
+        gap: 25px;
+        margin-bottom: 40px;
+    }
+
+    .project-card {
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+        overflow: hidden;
+        transition: 0.3s ease;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .project-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+    }
+
+    .project-card img {
+        width: 100%;
+        height: 170px;
+        object-fit: cover;
+    }
+
+    .project-content {
+        padding: 15px;
+    }
+
+    .project-content h3 {
+        margin-top: 0;
+        color: #003366;
+        font-size: 20px;
+    }
+
+    /* Toggle Sections */
+    .toggle-btn {
+        background: #003366;
+        color: white;
+        padding: 12px 18px;
+        border: none;
+        cursor: pointer;
+        margin: 5px 0;
+        border-radius: 4px;
+        font-size: 16px;
+    }
+
+    .toggle-section {
+        display: none;
+        border: 1px solid #003366;
+        padding: 20px;
+        margin-bottom: 20px;
+        border-radius: 6px;
+        background: #f0f6ff;
+    }
+
+    @media (max-width: 1200px) {
+        .projects-container {
+            grid-template-columns: repeat(2, 1fr); /* 2 columns for medium screens */
+        }
+    }
+
+    @media (max-width: 768px) {
+        .projects-container {
+            grid-template-columns: 1fr; /* 1 column for small screens */
+        }
+        .summary-section {
+            flex-direction: column;
+        }
+        .image-card img {
+            height: 200px;
+        }
+    }
+
+         /* Tabbed Experience/Courses/Education */
+    .tabs {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 20px;
+    }
+
+    .tab-btn {
+        flex: 1;
+        background-color: #e8efff;
+        border: 1px solid #003366;
+        color: #003366;
+        padding: 12px;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 5px;
+        text-align: center;
+        transition: 0.3s;
+    }
+
+    .tab-btn.active {
+        background-color: #003366;
+        color: white;
+    }
+
+    .tab-content {
+        display: none;
+        border: 1px solid #003366;
+        border-radius: 8px;
+        padding: 25px;
+        background: #f0f6ff;
+        transition: all 0.3s ease;
+    }
+
+    .tab-content.active {
+        display: block;
+    }
+
+    .tab-content h3 {
+        color: #003366;
+        margin-bottom: 10px;
+    }
+
+    .tab-content ul {
+        padding-left: 20px;
+        margin-bottom: 15px;
+    }
+
+    .experience-item, .course-item, .education-item {
+        margin-bottom: 20px;
+    }
+
+    .experience-item ul li, .course-item ul li, .education-item ul li {
+        margin-bottom: 6px;
+    }
+
+    @media (max-width: 1200px) {
+        .projects-container {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 768px) {
+        .projects-container {
+            grid-template-columns: 1fr;
+        }
+        .summary-section {
+            flex-direction: column;
+        }
+        .image-card img {
+            height: 200px;
+        }
+        .tabs {
+            flex-direction: column;
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>DORIS OMBONGI</h1>
+</header>
+
+<div class="container">
+
+    <!-- PROFESSIONAL SUMMARY -->
+    <div class="summary-section">
+        <div class="summary-card">
+            <p>
+                Detail-oriented and data-driven <strong>Analyst</strong> with hands-on experience in data collection, analysis and visualization across different sectors. 
+                Proficient in tools such as <strong> Python, SQL, Tableau, Power BI and Excel,</strong> with a solid foundation in statistical modeling and database management. 
+                Skilled at transforming raw data into actionable insights to inform decision-making and drive operational efficiency. 
+                Ready to contribute to dynamic teams in solving real-world problems using data.
+            </p>
+            <p>Contact: <a href="mailto:ombongidoris@gmail.com">ombongidoris@gmail.com</a> | <strong>+254713898533</strong></p>
+            <p>
+                <a href="https://www.linkedin.com/in/doris-ombongi-344728126" target="_blank" class="btn-blue">Go to my LinkedIn Page</a> 
+                <a href="https://github.com/dorisombongi" target="_blank" class="btn-blue">Go to my Github Page</a>
+            </p>
+            
+            <h3 style="color:#003366;">SKILLS</h3>
+            <div class="skill-tags">
+                <span class="skill-tag"><strong>Python</strong></span>
+                <span class="skill-tag"><strong>MySQL</strong></span>
+                <span class="skill-tag"><strong>Power BI</strong></span>
+                <span class="skill-tag"><strong>Tableau</strong></span>
+                <span class="skill-tag"><strong>Microsoft Office (Excel, Word, Powerpoint)</strong></span>
+                <span class="skill-tag"><strong>R</strong></span>
+                <span class="skill-tag"><strong>SPSS</strong></span>
+                <span class="skill-tag"><strong>Eviews</strong></span>
+                <span class="skill-tag"><strong>Web Development</strong></span>
+                <span class="skill-tag"><strong>Research</strong></span>
+                <span class="skill-tag"><strong>Data Collection & Entry</strong></span>
+                <span class="skill-tag"><strong>Data Analysis</strong></span>
+                <span class="skill-tag"><strong>Data Visualization</strong></span>
+            </div>
+        </div>
+        <div class="image-card">
+            <img src="data.png" alt="Doris Ombongi Profile Photo">
+        </div>
+    </div>
+
+    <!-- SELECTED PROJECTS -->
+    <h2>SELECTED PROJECTS</h2>
+    <div class="projects-container">
+
+        <div class="project-card">
+            <img src="finance.jpg" alt="Finance Analysis Report">
+            <div class="project-content">
+                <h3>Finance Analysis Report</h3>
+                <p>The analysis focused on the gretelai/synthetic_pii_finance_multilingual dataset, a synthetic multilingual financial dataset containing personally identifiable information (PII). It consists of two splits: a training set with 50,346 records and a test set with 5,594 records. Each record includes sixteen fields such as document type, description, language, domain, generated text, and PII spans, along with quality metrics like conformance, quality, toxicity, bias, and groundedness scores. Both data splits were converted into Pandas DataFrames for easy exploration and processing.</p>
+                
+                <div class="tags">
+                    <span class="tag">Python</span>
+                    <span class="tag">Pandas</span>
+                    <span class="tag">Juypter Notebook</span>
+                    <span class="tag">Data Analysis</span>
+                    <span class="tag">Data Visualization</span>
+                </div>
+                <p><a href="https://colab.research.google.com/drive/1a8Uox9Yp528sUla74KUhpT3oymQixHDW?usp=drive_link#scrollTo=OXLhqAkLCsjl" target="_blank" class="btn-blue">Open Notebook in Google Colab</a></p>
+            </div>
+        </div>
+
+
+        <div class="project-card">
+            <img src="1.png" alt="Udemy Finance & Accounting Dashboard">
+            <div class="project-content">
+                <h3>Udemy Finance & Accounting Dashboard</h3>
+                <p>The dashboard provides a holistic view of Udemy’s Finance & Accounting courses, visualizing the total courses, subscribers, ratings, reviews, and trends over time.</p>
+                
+                <div class="tags">
+                    <span class="tag">POWER BI</span>
+                    <span class="tag">DAX</span>
+                    <span class="tag">Data Visualization</span>
+                </div>
+                <p><a href="https://github.com/Dorisombongi/WeRateDogs-Data-Analysis" target="_blank" class="btn-blue">GitHub Repository</a></p>
+            </div>
+        </div>
+
+
+        <div class="project-card">
+            <img src="dog.jpg" alt="We Rate Dogs Project">
+            <div class="project-content">
+                <h3>We Rate Dogs</h3>
+                <p>This project focuses on the Wrangle and Analyze Data process using the WeRateDogs Twitter dataset. It involves gathering, assessing, cleaning, and analyzing data from multiple sources to explore how people rate dogs online. Three main data sources were used: the enhanced Twitter archive, image prediction results from a neural network, and additional tweet data from the Twitter API. These datasets were merged into a master DataFrame after extensive quality and tidiness checks.</p>
+                
+                <div class="tags">
+                    <span class="tag">Python</span>
+                    <span class="tag">Pandas</span>
+                    <span class="tag">Data Cleaning</span>
+                    <span class="tag">Data Analysis</span>
+                </div>
+                <p><a href="https://github.com/Dorisombongi/WeRateDogs-Data-Analysis" target="_blank" class="btn-blue">GitHub Repository</a></p>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <img src="bike.jpg" alt="Ford Go Bike Project">
+            <div class="project-content">
+                <h3>Ford Go Bike</h3>
+                <p>This project explores data from the Ford GoBike System, which records over 183,000 bike trips across the San Francisco Bay Area. The goal is to uncover the characteristics that influence trip duration, focusing primarily on rider age and user type. Each trip entry includes details such as trip duration, station information, user demographics, and bike-sharing status. The dataset was obtained from Ford GoBike February 2019 Data.</p>
+                
+                <div class="tags">
+                    <span class="tag">Python</span>
+                    <span class="tag">SQL</span>
+                    <span class="tag">Data Analysis</span>
+                    <span class="tag">Visualization</span>
+                </div>
+                <p><a href="https://github.com/Dorisombongi/Ford-Go-Bike-Project" target="_blank" class="btn-blue">GitHub Repository</a></p>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <img src="noshow.jpg" alt="No Show Appointment Project">
+            <div class="project-content">
+                <h3>No Show Appointment</h3>
+                <p>This dataset contains information from 110,527 medical appointments in Brazil, aiming to uncover factors influencing whether patients attend their scheduled appointments. Key features include PatientID, AppointmentID, Gender, ScheduledDay, Neighborhood, and Scholarship. The No-show column indicates if a patient attended (“No”) or missed (“Yes”) their appointment.</p>
+                
+                <div class="tags">
+                    <span class="tag">Python</span>
+                    <span class="tag">SQL</span>
+                    <span class="tag">Data Analysis</span>
+                    <span class="tag">Visualization</span>
+                </div>
+                <p><a href="https://github.com/Dorisombongi/No-show-Appointments" target="_blank" class="btn-blue">GitHub Repository</a></p>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <img src="webdev.jpg" alt="Website Development Project">
+            <div class="project-content">
+                <h3>Website Development</h3>
+                <p>Created an HTML website with internal CSS for a store offering hair products and services.</p>
+                
+                <div class="tags">
+                    <span class="tag">HTML</span>
+                    <span class="tag">CSS</span>
+                    <span class="tag">Web Development</span>
+                </div>
+                <p><a href="https://dorisombongi.github.io/Hair-products/" target="_blank" class="btn-blue">GitHub Page</a></p>
+            </div>
+        </div>
+    </div>
+
+<!-- Tabs for Experience/Courses/Education -->
+    <div class="tabs">
+        <div class="tab-btn active" onclick="showTab('experience')">EXPERIENCE</div>
+        <div class="tab-btn" onclick="showTab('courses')">COURSES</div>
+        <div class="tab-btn" onclick="showTab('education')">EDUCATION</div>
+    </div>
+
+    <!-- Tab Contents -->
+    <div id="experience" class="tab-content active">
+        <div class="experience-item">
+            <h3>Academic Researcher & Writer</h3>
+            <p><strong>EDUSSON | JAN 2025 - PRESENT</strong></p>
+            <ul>
+                <li>Conducts in-depth research and quantitative analysis to support academic assignments, including statistical studies, market reviews and data-driven reports.</li>
+                <li>Produces high-quality written reports and visualizations (charts, graphs, tables) to present findings.</li>
+                <li>Manages multiple concurrent projects under tight deadlines while maintaining confidentiality and accuracy.</li>
+            </ul>
+        </div>
+
+        <div class="experience-item">
+            <h3>Booking Clerk</h3>
+            <p><strong>ENA Investments | FEB 2024 - DEC 2024</strong></p>
+            <ul>
+                <li>Efficiently managed and processed bookings and reservations for passengers and parcel deliveries, ensuring accuracy and timeliness.</li>
+                <li>Assisted in customer inquiries and provided efficient service to improve user experience.</li>
+                <li>Utilized data management tools to track and optimize reservation records.</li>
+            </ul>
+        </div>
+
+        <div class="experience-item">
+            <h3>Data Entry Clerk and Analyst</h3>
+            <p><strong>AMREF | JUL 2021 - NOV 2023</strong></p>
+            <ul>
+                <li>Updated customer information in the COVID-19 website database.</li>
+                <li>Transferred data from hard copy to a digital database.</li>
+                <li>Analyzed data using Excel.</li>
+                <li>Provided weekly reports.</li>
+                <li>Interacted respectfully with customers inquiring about the services they needed.</li>
+            </ul>
+        </div>
+
+        <div class="experience-item">
+            <h3>Statistician Attachee</h3>
+            <p><strong>NATIONAL TREASURY AND PLANNING | JUN 2018 - SEP 2018</strong></p>
+            <ul>
+                <li>Analyzed data using various software after research and numerous data collections.</li>
+                <li>Analyzed relationships between macroeconomic variables and estimated their trends.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="courses" class="tab-content">
+        <div class="course-item">
+         <h3>Software Engineering</h3>
+         <p><strong>PLP Academy | JUN 2024 - DEC 2024</strong></p>
+         <ul>
+            
+            <li>Gained solid understanding of programming, software development, and database fundamentals.</li>
+            <li>Built real-world projects to apply theoretical knowledge into practice.</li>
+            <li>Collaborated with peers and mentors to strengthen teamwork and problem-solving skills.</li>
+        </ul>
+        </div>
+
+        <div class="course-item">
+            <h3>ALX-T Data Analytics Nanodegree</h3>
+            <p><strong>Udacity | MAY 2022 - AUG 2022</strong> </p>
+             <ul>
+                 <li>Learned to clean, wrangle, and visualize data using Python (Pandas, NumPy) and other tools.</li>
+                 <li>Developed the ability to turn raw data into actionable insights through reports and dashboards.</li>
+                 <li>Worked on real-world datasets to build a portfolio of practical projects.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="education" class="tab-content">
+        <div class="education-item">
+            <h3>Bachelor of Science (Statistics)</h3>
+            <p><strong>SOUTH EASTERN KENYA UNIVERSITY - SECOND CLASS UPPER DIVISION</strong></a></p>
+        </div>
+
+        <div class="education-item">
+            <h3>KCSE</h3>
+            <p><strong>ST. ANGELA SENGERA GIRLS - B+</strong></p>
+        </div>
+    </div>
+
+</div>
+
+<script>
+function showTab(tabId) {
+    const tabs = document.querySelectorAll('.tab-content');
+    const btns = document.querySelectorAll('.tab-btn');
+
+    tabs.forEach(tab => tab.classList.remove('active'));
+    btns.forEach(btn => btn.classList.remove('active'));
+
+    document.getElementById(tabId).classList.add('active');
+
+    const activeBtn = Array.from(btns).find(btn => btn.textContent.toLowerCase() === tabId);
+    if (activeBtn) activeBtn.classList.add('active');
+}
+</script>
+
+<script>
+    function toggle(id) {
+        const section = document.getElementById(id);
+        section.style.display = section.style.display === "block" ? "none" : "block";
+    }
+</script>
+
+</body>
+</html>
