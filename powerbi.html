@@ -1,0 +1,129 @@
+
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Udemy Finance & Accounting Dashboard and Insights</title>
+  <style>
+    body {font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f9fafb; color: #111; margin: 0;}
+    .container {max-width: 1100px; margin: 30px auto; padding: 20px; background: #fff; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);} 
+    h1, h2, h3 {color: #0a4d68; margin-bottom: 10px;}
+    p {line-height: 1.6; color: #444;}
+    img {width: 100%; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.08);} 
+    section {margin-bottom: 40px;}
+    footer {text-align: center; font-size: 13px; color: #666; margin-top: 40px;}
+    .insight {background: #f0f9ff; border-left: 5px solid #0a4d68; padding: 15px; border-radius: 6px;}
+    .view-dashboard {text-align: center; color: #0066cc; font-weight: bold;}
+    .view-dashboard a {color: #0066cc; text-decoration: none; font-size: 18px;}
+    .view-dashboard a:hover {text-decoration: underline;}
+
+    /* Original flex-row (for KPI section only) */
+    .flex-row {display: flex; align-items: center; gap: 30px;}
+    .flex-row img {width: 48%;}
+    .flex-row .insight {width: 48%;}
+
+    /* New grid for 3-column layout after KPI */
+    .three-col {display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; text-align: center;}
+    .three-col-item img {width: 100%; margin-bottom: 10px;}
+    .three-col-item .insight {text-align: left;}
+
+    @media(max-width: 800px){
+      .flex-row {flex-direction: column;}
+      .flex-row img, .flex-row .insight {width: 100%;}
+      .three-col {grid-template-columns: 1fr;}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>1. Udemy Finance & Accounting Dashboard</h1>
+    <p>This webpage presents a visual dashboard created in Power BI summarizing Finance & Accounting course performance on Udemy, followed by detailed insights and interpretations for each visualization.</p>
+
+    <div class="view-dashboard">
+      <p><a href="https://app.powerbi.com/groups/me/reports/dd95f175-d1b4-4ebe-bfe4-a8b8c835c88f/60e19b70cdf7033c4a9c?experience=power-bi" target="_blank">🔗 VIEW INTERACTIVE POWER BI DASHBOARD</a></p>
+    </div>
+    
+
+    <section>
+      <p class="insight">The dashboard provides a holistic view of Udemy’s Finance & Accounting courses, highlighting the total courses, subscribers, ratings, reviews, and trends over time.</p>
+      <img src="1.png" alt="Full Power BI dashboard overview" />
+    </section>
+
+   
+    <section>
+      <h2>1. Overall Performance Indicators</h2>
+      <img src="2.png" alt="KPI cards overview" />
+      <div class="insight">
+        <p>Udemy offers <strong>13,608 Finance & Accounting courses</strong>, attracting over <strong>39 million learners</strong> with an average course rating of <strong>3.92</strong> and a total of <strong>3 million reviews</strong>. This indicates strong user engagement and a substantial market for online financial education.</p>
+      </div>
+    </section>
+
+    <!-- Reorganized images + insights into 3 columns -->
+    <section class="three-col">
+      <div class="three-col-item">
+        <h2>2. Paid vs Free Courses</h2>
+        <img src="3.png" alt="Paid vs Free pie chart" />
+        <div class="insight">
+          <p>Over <strong>96% of courses are paid</strong>, suggesting that learners perceive Finance & Accounting topics as valuable enough to invest in. This dominance of paid courses reflects high demand for premium content and credibility in this category.</p>
+        </div>
+      </div>
+
+      <div class="three-col-item">
+        <h2>3. Top Courses by Subscribers</h2>
+        <img src="4.png" alt="Top courses bar chart" />
+        <div class="insight">
+          <p>The bar chart displays the most popular Finance and Accounting courses by number of subscribers. <em>An Entire MBA in 1 Course</em> leads with nearly <strong>400,000 subscribers</strong>, followed closely by <em>The Complete SQL Bootcamp 2020</em> and <em>Stock Market Investing for Beginners</em>. The pattern suggests that broad, career-oriented courses attract larger audiences than narrow or specialized topics.</p>
+        </div>
+      </div>
+
+      <div class="three-col-item">
+        <h2>4. Relationship between Ratings and Subscribers</h2>
+        <img src="5.png" alt="Scatter plot: Ratings vs Subscribers" />
+        <div class="insight">
+          <p>There is <strong>a positive relationship between average rating and number of subscribers.</strong> Courses with higher ratings generally attract more learners, although a few highly subscribed courses have slightly lower ratings. This indicates that quality influences enrollment, but factors such as course topic relevance and marketing may also play significant roles.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="three-col">
+      <div class="three-col-item">
+        <h2>5. Course Pricing by Currency</h2>
+        <img src="6.png" alt="Currency treemap" />
+        <div class="insight">
+          <p>The majority of courses are priced in <strong>Indian Rupees (INR)</strong>, suggesting that a significant portion of the Finance & Accounting learner base may originate from regions where this currency applies. This may reflect market concentration or affordability strategies targeted at emerging economies.</p>
+        </div>
+      </div>
+
+      <div class="three-col-item">
+        <h2>6. Reviews vs Subscribers</h2>
+        <img src="7.png" alt="Stacked bar chart" />
+        <div class="insight">
+          <p>The combined bar chart comparing reviews and subscribers reveals that courses with more reviews also tend to have higher subscriber counts. This correlation implies that learner engagement and satisfaction often go hand in hand, as popular courses receive more feedback and interaction.</p>
+        </div>
+      </div>
+
+      <div class="three-col-item">
+        <h2>7. Average Rating by Year</h2>
+        <img src="8.png" alt="Average rating by year line graph" />
+        <div class="insight">
+          <p>The line chart depicts a steady increase in course publications from 2011 to 2020, with the most substantial growth between 2016 and 2019. This reflects the rising demand for online education, especially in professional finance training. The upward trend demonstrates consistent growth in Udemy’s finance content offerings over time.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>8. Rating Trends Over Time </h2>
+      <img src="9.png" alt="Rating Trends by year Bar Chart" />
+      <div class="insight">
+        <p>There is an upward trend in learner satisfaction from 2014 onwards. This suggests that course quality and instructional standards have improved over time, possibly as competition and platform quality control increased.</p>
+      </div>
+    </section>
+
+    <footer>
+      © 2025 Doris Ombongi — Udemy Finance & Accounting Dashboard Analysis. <br> Designed for visualization of Power BI insights through an HTML interface.
+    </footer>
+  </div>
+</body>
+</html>
